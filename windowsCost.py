@@ -1,9 +1,8 @@
-###Calculating windows cost
-###Rounding up numbers Для округления в большую сторону подключаем стандартный модуль match
+###Calculating the cost of windows 
+###To round up numbers import module mathь match
 import math
 
-#Формула для расчета стоимости окон
-#От выбора профиля формула для расчета не меняется, следовательно выбранный профиль при расчете не учитываем
+#Formula for calculating cost of windows
 def GetWindowCost(wCasement, wFittings, lr, ss, ls):
     errorText = "При расчете произошла ошибка. Пожалуйста, перезапустите программу."  
 
@@ -29,9 +28,9 @@ def GetWindowCost(wCasement, wFittings, lr, ss, ls):
     return math.ceil(cost)
 
 
-#Определение пожеланий клиента и расчет стоимости
+#Finding out customer's wishes and calculating the cost
 def FinalWindowCost():   
-    #Выбор профиля
+    #Selecting window profile
     while True:
         wProfile = input("Какой оконный профиль вы бы хотели:(1 - IVAPER / 2 - REHAU)\n")
         if wProfile == "1" or wProfile == "2":
@@ -39,7 +38,7 @@ def FinalWindowCost():
         else:
             print("Введено некорректное значение. Пожалуйста, введите индекс профиля из предложенных!\n")
 
-    #Выбор количества створок        
+    #Selecting number of casements      
     while True:
         wCasement = input("Сколько створок будет у вашего окна: (2 / 3)\n")
         if wCasement == "2" or wCasement == "3":
@@ -47,7 +46,7 @@ def FinalWindowCost():
         else:
             print("Введено некорректное значение. Мы устанавливаем только 2х или 3х створчатые окна!\n")
 
-    #Выбор фурнитуры
+    #Selecting window fittings
     while True:
         wFittings = input("Какая фурнитура вам нужна: (1 - поворотная / 2 - поворотно-откидная)\n")
         if wFittings == "1" or wFittings == "2":
@@ -55,7 +54,7 @@ def FinalWindowCost():
         else:
             print("Введено некорректное значение. Пожалуйста, выберите из предложенного!\n")
 
-    #Выбор длины рамы
+    #Imputing window frame length
     while True:
         if wCasement == "2":
             start = 1.3
@@ -72,7 +71,7 @@ def FinalWindowCost():
         except ValueError:
             print("Введено некорректное значение. Пожалуйста, укажите числовое значение из предложенного диапазона!\n")
 
-    #Выбор ширины створки
+    #Imputing window casement width
     while True:    
         ss = input("Введите ширину створки (м): (от 1.4 до 1.56)\n")
         try:
@@ -83,7 +82,7 @@ def FinalWindowCost():
         except ValueError:
             print("Введено некорректное значение. Пожалуйста, укажите числовое значение из предложенного диапазона!\n")
 
-    #Выбор длины створки
+    #Imputing window casement length
     while True:    
         ls = input("Введите длину створки (м): (от 0.4 до 0.9)\n")
         try:
@@ -94,7 +93,7 @@ def FinalWindowCost():
         except ValueError:
             print("Введено некорректное значение. Пожалуйста, укажите числовое значение из предложенного диапазона!\n")
 
-    #Расчет стоимости
+    #Calculating the cost
     finalCost = GetWindowCost(wCasement, wFittings, float(lr), float(ss), float(ls))
     return finalCost
        
